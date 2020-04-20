@@ -1,6 +1,20 @@
 
 // grab html elements
 const usernameInput = document.getElementById('username-input');
+const submitButton = document.getElementById('submit-button');
+
+
+
+
+
+// button registers user info, adds to local storage and redirects to slots page
+submitButton.addEventListener('click', () => {
+    const user = makeUser(usernameInput);
+    const stringifyUser = JSON.stringify(user);
+    localStorage.setItem('USER', stringifyUser);
+    location.href = './slots/'
+})
+
 
 // create user object with new name from username input and default wallet
 function makeUser(usernameInput) {
@@ -13,4 +27,6 @@ function makeUser(usernameInput) {
     return UserObject;
 
 }
+
+
 
