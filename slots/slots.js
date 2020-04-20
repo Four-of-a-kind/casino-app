@@ -1,3 +1,5 @@
+import { slotsData } from '../data/slots-data.js';
+
 // bring elements from DOM
 const userNameSpan = document.getElementById('user-name-span');
 const walletSpan = document.getElementById('wallet-span');
@@ -12,8 +14,6 @@ let spinCounter = 5;
 spinSpan.textContent = spinCounter;
 
 loadUserProfile(user);
-
-
 
 
 
