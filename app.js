@@ -12,8 +12,8 @@ submitButton.addEventListener('click', () => {
     const user = makeUser(usernameInput);
     const stringifyUser = JSON.stringify(user);
     localStorage.setItem('USER', stringifyUser);
-    location.href = './slots/'
-})
+    location.href = './slots/';
+});
 
 
 // create user object with new name from username input and default wallet
