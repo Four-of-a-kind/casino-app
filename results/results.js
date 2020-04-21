@@ -2,8 +2,9 @@
 const userNameSpan = document.getElementById('user-name-span');
 const walletSpan = document.getElementById('wallet-span');
 const resultSpan = document.getElementById('result-span');
+const resultImage = document.getElementById('result-image');
 const resetButton = document.getElementById('reset-button');
-const leaderboardList = document.getElementById('leaderboard-ul')
+const leaderboardList = document.getElementById('leaderboard-ul');
 
 let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 const user = JSON.parse(localStorage.getItem('USER'));
@@ -11,17 +12,7 @@ const user = JSON.parse(localStorage.getItem('USER'));
 
 loadUserProfile(user);
 
-console.log(allTimeArray);
 
-// for(let i = 0; i < allTimeArray.length; i++) {
-//     const allTimeArrayScore = allTimeArray[i];
-//     const list = document.createElement('li');
-//     const name = document.createElement('h1');
-//     const score = document.createElement('h1');
-
-//     name.textContent = allTimeArrayScore
-
-// }
 
 allTimeArray.forEach((userScore) => {
     const list = document.createElement('li');
@@ -36,11 +27,21 @@ allTimeArray.forEach((userScore) => {
 });
 
 
-
 const stringyAllTimeArray = JSON.stringify(allTimeArray);
 localStorage.setItem('LEADERBOARD', stringyAllTimeArray);
-    
 
+if (user.wallet < 10){
+    resultSpan.textContent = 'You won a sandwich!';
+} if (user.wallet > 9 && user.wallet < 50){
+    resultSpan.textContent = 'You won steak dinner!';
+}
+else {
+    resultSpan.textContent = 'You won a vacation!';
+}
+    
+resetButton.addEventListener('click', () => {
+    window.location = '../';
+});
 
 
 
