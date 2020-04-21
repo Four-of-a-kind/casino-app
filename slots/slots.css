@@ -1,0 +1,8 @@
+ul {
+   list-style: none;
+}
+
+#render-reel {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+}
