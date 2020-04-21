@@ -1,4 +1,5 @@
 import { slotsData } from '../data/slots-data.js';
+import { checkResult } from '../common/utils.js';
 
 // bring elements from DOM
 const userNameSpan = document.getElementById('user-name-span');
@@ -87,11 +88,7 @@ function makeResultsButton(){
 
 
 
-// will be placed in event listener function
-function checkResult(reel1, reel2, reel3) {
-    return reel1.id === reel2.id && reel1.id === reel3.id;
-    
-}
+
 
 
 

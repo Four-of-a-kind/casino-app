@@ -10,4 +10,10 @@ export function findById(idtoFind, arrayToSearch) {
 }
 
 
+
+// will be placed in event listener function
+export function checkResult(reel1, reel2, reel3) {
+    return reel1.id === reel2.id && reel1.id === reel3.id;   
+}
+
    
