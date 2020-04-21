@@ -16,18 +16,58 @@ spinSpan.textContent = spinCounter;
 
 loadUserProfile(user);
 
-// uses generate random function to set reel
-let reel1 = generateRandom(slotsData);
-let reel2 = generateRandom(slotsData);
+
+spinButton.addEventListener('click', () => {
+    // uses generate random function to set reel
+    let reel1 = generateRandom(slotsData);
+    let reel2 = generateRandom(slotsData);
+
+    user.wallet = user.wallet - 5;
+
+    reel1Image.src = reel1.image;
+    reel2Image.src = reel2.image;
+    //check results/compare reel1 and reel2, if equal update view
+    const result = checkResult(reel1, reel2);
+    if (result === true) {
+        user.wallet += reel1.value;
+
+    }
+    //decrease spin counter
+    spinCounter--;
+    //decrease spin and update view
+    spinSpan.textContent = spinCounter;
+    //update userprofile view
+    loadUserProfile(user);
+    if (spinCounter === 0) {
+        //update player stats before sending to local storage
+        const stringifyUser = JSON.stringify(user);
+        localStorage.setItem('USER', stringifyUser);
+        window.location = '../results/';
+
+    } 
+    
+});
+
+
+
+
+
+
+
+
+
+
 
 // will be placed in event listener function
 function checkResult(reel1, reel2) {
     if (reel1.id === reel2.id) {
-        return 1;
+        return true;
     } else {
-        return 0;
+        return false;
     }
 }
+
+
 
 
 
