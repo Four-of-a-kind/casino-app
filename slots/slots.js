@@ -9,6 +9,7 @@ const reel2Image = document.getElementById('reel-two-image');
 const reel3Image = document.getElementById('reel-three-image');
 const spinButton = document.getElementById('spin-button');
 const resultsButtonDiv = document.getElementById('results-button-div');
+const resultDescription = document.getElementById('result-description');
 
 const user = JSON.parse(localStorage.getItem('USER'));
 
@@ -36,17 +37,28 @@ spinButton.addEventListener('click', () => {
     if (result === true) {
         user.wallet += reel1.value;
 
+        resultDescription.textContent = `You win $${reel1.value}`;
+    } else {
+        resultDescription.textContent = `You lose`;
     }
     //decrease spin counter
     spinCounter--;
     //decrease spin and update view
     spinSpan.textContent = spinCounter;
+
     //update userprofile view
     loadUserProfile(user);
+
     if (spinCounter === 0 || user.wallet < 5) {
         //update player stats before sending to local storage
         const stringifyUser = JSON.stringify(user);
         localStorage.setItem('USER', stringifyUser);
+
+        if (spinCounter === 0){
+            resultDescription.textContent = 'You are out of spins';
+        } else {
+            resultDescription.textContent = 'Out of money! You are too broke to play';
+        }
 
         spinButton.disabled = true;
         makeResultsButton();
