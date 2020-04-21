@@ -20,9 +20,12 @@ loadUserProfile(user);
 let reel1 = generateRandom(slotsData);
 let reel2 = generateRandom(slotsData);
 
+// will be placed in event listener function
 function checkResult(reel1, reel2) {
     if (reel1.id === reel2.id) {
-
+        return 1;
+    } else {
+        return 0;
     }
 }
 

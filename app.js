@@ -27,6 +27,3 @@ function makeUser(usernameInput) {
     return UserObject;
 
 }
-
-
-
