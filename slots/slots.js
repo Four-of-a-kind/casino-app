@@ -40,7 +40,6 @@ superArray.forEach((array) => {
     const img2 = document.createElement('img');
     const img3 = document.createElement('img');
     
-
     let reel1 = generateRandom(array);
     let reel2 = generateRandom(array);
     let reel3 = generateRandom(array);
