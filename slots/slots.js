@@ -12,6 +12,8 @@ const spinButton = document.getElementById('spin-button');
 const resultsButtonDiv = document.getElementById('results-button-div');
 const resultDescription = document.getElementById('result-description');
 
+let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
+
 const user = JSON.parse(localStorage.getItem('USER'));
 
 // intialize spins
@@ -54,6 +56,17 @@ spinButton.addEventListener('click', () => {
         //update player stats before sending to local storage
         const stringifyUser = JSON.stringify(user);
         localStorage.setItem('USER', stringifyUser);
+        // here we'll add user item to all-time sessions
+        // allTimeArray is empty, create empty index
+        if(!allTimeArray) {
+            allTimeArray = [];
+        }
+
+        // if it does exist, push user object into the array
+        allTimeArray.push(user);
+        
+        const stringifyallTimeArray = JSON.stringify(allTimeArray);
+        localStorage.setItem('LEADERBOARD', stringifyallTimeArray);
 
         if (spinCounter === 0){
             resultDescription.textContent = 'You are out of spins';
