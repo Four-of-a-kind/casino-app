@@ -1,16 +1,17 @@
-import { slotsData } from '../data/slots-data.js';
+import { superArray, slotsData1 } from '../data/slots-data.js';
 import { checkResult } from '../common/utils.js';
 
 // bring elements from DOM
 const userNameSpan = document.getElementById('user-name-span');
 const walletSpan = document.getElementById('wallet-span');
 const spinSpan = document.getElementById('spin-span');
-const reel1Image = document.getElementById('reel-one-image');
-const reel2Image = document.getElementById('reel-two-image');
-const reel3Image = document.getElementById('reel-three-image');
+// const reel1Image = document.getElementById('reel-one-image');
+// const reel2Image = document.getElementById('reel-two-image');
+// const reel3Image = document.getElementById('reel-three-image');
 const spinButton = document.getElementById('spin-button');
 const resultsButtonDiv = document.getElementById('results-button-div');
 const resultDescription = document.getElementById('result-description');
+const newReel = document.getElementById('render-reel');
 
 let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 
@@ -22,18 +23,49 @@ spinSpan.textContent = spinCounter;
 
 loadUserProfile(user);
 
+// uses generate random function to set reel
+// let reel1 = generateRandom(slotsData1);
+// let reel2 = generateRandom(slotsData1);
+// let reel3 = generateRandom(slotsData1);
+
+// reel1Image.src = reel1.image;
+// reel2Image.src = reel2.image;
+// reel3Image.src = reel3.image;
+
+superArray.forEach((array) => {
+        
+    const ul = document.createElement('ul');
+    const li = document.createElement('li');
+    const img1 = document.createElement('img');
+    const img2 = document.createElement('img');
+    const img3 = document.createElement('img');
+    
+
+    let reel1 = generateRandom(array);
+    let reel2 = generateRandom(array);
+    let reel3 = generateRandom(array);
+
+    
+    img1.src = reel1.image;
+    img2.src = reel2.image;
+    img3.src = reel3.image;
+
+    li.append(img1, img2, img3);
+    ul.appendChild(li);
+    newReel.appendChild(ul);
+    
+    console.log(newReel, 'hey');
+
+});
 
 spinButton.addEventListener('click', () => {
-    // uses generate random function to set reel
-    let reel1 = generateRandom(slotsData);
-    let reel2 = generateRandom(slotsData);
-    let reel3 = generateRandom(slotsData);
+    
 
+    
     user.wallet = user.wallet - 5;
+    
+    
 
-    reel1Image.src = reel1.image;
-    reel2Image.src = reel2.image;
-    reel3Image.src = reel3.image;
 
     //check results/compare reel1 and reel2, if equal update view
     const result = checkResult(reel1, reel2, reel3);
@@ -58,7 +90,7 @@ spinButton.addEventListener('click', () => {
         localStorage.setItem('USER', stringifyUser);
         // here we'll add user item to all-time sessions
         // allTimeArray is empty, create empty index
-        if(!allTimeArray) {
+        if (!allTimeArray) {
             allTimeArray = [];
         }
 
