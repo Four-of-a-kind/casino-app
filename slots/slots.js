@@ -12,6 +12,7 @@ const resultDescription = document.getElementById('result-description');
 const reelZone = document.getElementById('reel-zone');
 const spinMessage = document.getElementById('spin-message');
 
+
 let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 
 const user = JSON.parse(localStorage.getItem('USER'));
@@ -62,6 +63,7 @@ function makeImages(_superArray) {
         reelZone.append(imgli);
         imgli.append(img1, img2, img3, img4, img5, img6, img7, img8, img9, img10);
         imgli.id = 'imgli';
+        
         
         img1.id = JSON.stringify(i) + 'img1';
         img2.id = JSON.stringify(i) + 'img2';
@@ -126,6 +128,16 @@ spinButton.addEventListener('click', () => {
 // on click generate new superArray
 // one function that takes in array and changes images
 // another function that takes in three arrays and places them into superarray
+    
+    if (reelZone.classList.contains('imgli')) {
+        reelZone.classList.remove('imgli');
+    }
+    console.log(reelZone);
+    
+    
+    reelZone.classList.add('imgli');
+    console.log(reelZone);
+    
 
     const newSuperArray = generateSuperArray(slotsData1);
 
@@ -163,6 +175,8 @@ spinButton.addEventListener('click', () => {
     img30.src = newSuperArray[2][9].image;
     
 //everything works. No further action required. 
+    
+    
     const resultValue = checkResult(newSuperArray);
 
     if (resultValue === 0) {
