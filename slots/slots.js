@@ -10,6 +10,7 @@ const spinButton = document.getElementById('spin-button');
 const resultsButtonDiv = document.getElementById('results-button-div');
 const resultDescription = document.getElementById('result-description');
 const reelZone = document.getElementById('reel-zone');
+const spinMessage = document.getElementById('spin-message');
 
 let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 
@@ -21,14 +22,6 @@ spinSpan.textContent = spinCounter;
 
 loadUserProfile(user);
 
-// uses generate random function to set reel
-// let reel1 = generateRandom(slotsData1);
-// let reel2 = generateRandom(slotsData1);
-// let reel3 = generateRandom(slotsData1);
-
-// reel1Image.src = reel1.image;
-// reel2Image.src = reel2.image;
-// reel3Image.src = reel3.image;
 
 // make superArray from slotsData
 const superArray = generateSuperArray(slotsData1);
@@ -53,10 +46,9 @@ function makeImages(_superArray) {
         img1.id = JSON.stringify(i) + 'img1';
         img2.id = JSON.stringify(i) + 'img2';
         img3.id = JSON.stringify(i) + 'img3';
-
-
     }
 }
+
 makeImages(superArray);
 
 const img1 = document.getElementById('0img1');
@@ -87,32 +79,21 @@ spinButton.addEventListener('click', () => {
     img9.src = newSuperArray[2][2].image;
     
 
-    // const result = checkResult(newSuperArray);
-    // if (result === true) {
-    //     user.wallet += superArray[0][0].value;
+    const resultValue = checkResult(newSuperArray);
 
-    //     resultDescription.textContent = `You win $${superArray[0][0].value}`;
-    // } else {
-    //     resultDescription.textContent = `You lose`;
-    // }
-    // for (let i = 0; i < 3; i++) {
-
-    // create three list items with images of each object in the superarray
-
-    console.log(newSuperArray);
-
+    if (resultValue === 0) {
+        resultDescription.textContent = 'You Lose';
+    } else {
+        resultDescription.textContent = `You win $${resultValue}`;
+        user.wallet += resultValue;
+    }
 
     user.wallet = user.wallet - 5;
-
-    
-    
-
 
     //decrease spin counter
     spinCounter--;
     //decrease spin and update view
     spinSpan.textContent = spinCounter;
-
 
     //update userprofile view
     loadUserProfile(user);
@@ -134,7 +115,7 @@ spinButton.addEventListener('click', () => {
         localStorage.setItem('LEADERBOARD', stringifyallTimeArray);
 
         if (spinCounter === 0){
-            resultDescription.textContent = 'You are out of spins';
+            spinMessage.textContent = 'You are out of spins';
         } else {
             resultDescription.textContent = 'Out of money! You are too broke to play';
         }
@@ -142,10 +123,8 @@ spinButton.addEventListener('click', () => {
         spinButton.disabled = true;
         makeResultsButton();
         // window.location = '../results/';
-    } 
-    
+    }   
 });
-
 
 
 // results button
@@ -159,16 +138,6 @@ function makeResultsButton(){
     });
     resultsButtonDiv.appendChild(resultsButton);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
