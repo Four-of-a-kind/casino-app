@@ -1,4 +1,4 @@
-export const slotsData = [
+export const slotsData1 = [
     {
         id: 1,
         value: 5,

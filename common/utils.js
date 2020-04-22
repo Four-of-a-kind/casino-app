@@ -12,8 +12,8 @@ export function findById(idtoFind, arrayToSearch) {
 
 
 // will be placed in event listener function
-export function checkResult(reel1, reel2, reel3) {
-    return reel1.id === reel2.id && reel1.id === reel3.id;   
+export function checkResult(superArray) {
+    return superArray[0][0].id === superArray[1][0].id && superArray[0][0] === superArray[2][0];   
 }
 
    
