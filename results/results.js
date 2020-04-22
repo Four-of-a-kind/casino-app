@@ -22,8 +22,8 @@ sortedAllTimeArray.forEach((userScore) => {
     const name = document.createElement('h1');
     const score = document.createElement('h1');
 
-    name.textContent = userScore.name;
-    score.textContent = userScore.wallet;
+    name.textContent = `name: ${userScore.name}`;
+    score.textContent = `score: ${userScore.wallet}`;
 
     list.append(name, score);
     leaderboardList.append(list);
@@ -53,5 +53,5 @@ resetButton.addEventListener('click', () => {
 
 function loadUserProfile(user){
     userNameSpan.textContent = user.name;
-    walletSpan.textContent = user.wallet;  
+    walletSpan.textContent = `$${user.wallet}`;  
 }
