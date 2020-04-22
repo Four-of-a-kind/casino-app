@@ -5,4 +5,43 @@ ul {
 #reel-zone {
     display: grid;
     grid-template-columns: 300px 300px 300px;
+    position: absolute;
+    top: -700px;
+    left: 500px;
+}
+
+
+#imgli {
+    animation-name: firstSpin;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+
+}
+
+.imgli {
+    animation-name: newSpin;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    top: -700px;
+    
+}
+
+@keyframes firstSpin {
+    from{
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(700px);
+    }
+}
+
+@keyframes newSpin {
+    from{
+        transform: translateY(-700px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+    
 }
