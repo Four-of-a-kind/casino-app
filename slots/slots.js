@@ -63,6 +63,7 @@ function makeImages(_superArray) {
         reelZone.append(imgli);
         imgli.append(img1, img2, img3, img4, img5, img6, img7, img8, img9, img10);
         imgli.id = 'imgli';
+        reelZone.classList.add('imgli');
         
         
         img1.id = JSON.stringify(i) + 'img1';
@@ -125,18 +126,16 @@ const img30 = document.getElementById('2img10');
 
 
 spinButton.addEventListener('click', () => {
-// on click generate new superArray
-// one function that takes in array and changes images
-// another function that takes in three arrays and places them into superarray
+    // on click generate new superArray
+    // one function that takes in array and changes images
+    // another function that takes in three arrays and places them into superarray
     
     if (reelZone.classList.contains('imgli')) {
         reelZone.classList.remove('imgli');
+        return reelZone;
     }
-    console.log(reelZone);
-    
     
     reelZone.classList.add('imgli');
-    console.log(reelZone);
     
 
     const newSuperArray = generateSuperArray(slotsData1);
