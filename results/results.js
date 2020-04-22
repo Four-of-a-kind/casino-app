@@ -12,9 +12,12 @@ const user = JSON.parse(localStorage.getItem('USER'));
 
 loadUserProfile(user);
 
+const sortedAllTimeArray = allTimeArray.sort(function(a, b) {
+    return b.wallet - a.wallet;
+});
 
 
-allTimeArray.forEach((userScore) => {
+sortedAllTimeArray.forEach((userScore) => {
     const list = document.createElement('li');
     const name = document.createElement('h1');
     const score = document.createElement('h1');
