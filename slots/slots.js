@@ -1,17 +1,19 @@
-import { superArray, slotsData1 } from '../data/slots-data.js';
+import { slotsData1 } from '../data/slots-data.js';
 import { checkResult } from '../common/utils.js';
+import { generateSuperArray } from './generateSuperArray.js';
 
 // bring elements from DOM
 const userNameSpan = document.getElementById('user-name-span');
 const walletSpan = document.getElementById('wallet-span');
 const spinSpan = document.getElementById('spin-span');
-// const reel1Image = document.getElementById('reel-one-image');
-// const reel2Image = document.getElementById('reel-two-image');
-// const reel3Image = document.getElementById('reel-three-image');
+const reel1Images = document.getElementById('reel-one-image');
+const reel2Images = document.getElementById('reel-two-image');
+const reel3Images = document.getElementById('reel-three-image');
 const spinButton = document.getElementById('spin-button');
 const resultsButtonDiv = document.getElementById('results-button-div');
 const resultDescription = document.getElementById('result-description');
 const newReel = document.getElementById('render-reel');
+const reelZone = document.getElementById('reel-zone');
 
 let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 
@@ -32,83 +34,39 @@ loadUserProfile(user);
 // reel2Image.src = reel2.image;
 // reel3Image.src = reel3.image;
 
-superArray.forEach((array) => {
-        
-    const ul = document.createElement('ul');
-    const li = document.createElement('li');
+// make superArray from slotsData
+const superArray = generateSuperArray(slotsData1)
+
+
+// this for loop creates three list items from superarray on page load
+for (let i = 0; i < 3; i++) {
+
+    // create three list items with images of each object in the superarray
+    const imgli = document.createElement('li');
     const img1 = document.createElement('img');
     const img2 = document.createElement('img');
     const img3 = document.createElement('img');
-    
-    let reel1 = generateRandom(array);
-    let reel2 = generateRandom(array);
-    let reel3 = generateRandom(array);
+    img1.src = superArray[i][0].image;
+    img2.src = superArray[i][1].image;
+    img3.src = superArray[i][2].image;
 
-    img1.id = 'imageOne';
-    img2.id = 'imageTwo';
-    img3.id = 'imageThree';
+    reelZone.append(imgli);
+    imgli.append(img1, img2, img3);
+}
 
-    
-    img1.src = reel1.image;
-    img2.src = reel2.image;
-    img3.src = reel3.image;
-
-    li.append(img1, img2, img3);
-    ul.appendChild(li);
-    newReel.appendChild(ul);
-    
-
-});
 
 spinButton.addEventListener('click', () => {
     
-    superArray.forEach((array) => {
 
-        let topRow1 = generateRandom(array);
-        let middleRow1 = generateRandom(array);
-        // let reel3 = generateRandom(array);
-        let topRow2 = generateRandom(array);
-        let middleRow2 = generateRandom(array);
-        // let reel6 = generateRandom(array);
-        let topRow3 = generateRandom(array);
-        let middleRow3 = generateRandom(array);
-        // let reel9 = generateRandom(array);
-
-
-        let images = document.querySelectorAll('img');
-        
-        // const img1 = document.getElementById('imageOne');
-        // const img2 = document.getElementById('imageTwo');
-        // const img3 = document.getElementById('imageThree');
-
-        images[0].src = topRow1.image;
-        images[1].src = middleRow1.image;
-        // images[2].src = reel3.image;
-        images[3].src = topRow2.image;
-        images[4].src = middleRow2.image;
-        // images[5].src = reel6.image;
-        images[6].src = topRow3.image;
-        images[7].src = middleRow3.image;
-        // images[8].src = reel9.image;
-
-        console.log(topRow1);
-
-        // img1.src = reel1.image;
-        // img2.src = reel2.image;
-        // img3.src = reel3.image;
-        
-        // check results/compare reel1 and reel2, if equal update view
-        const result = checkResult(topRow1, topRow2, topRow3);
-        if (result === true) {
-            user.wallet += topRow1.value;
-
-            resultDescription.textContent = `You win $${topRow1.value}`;
-        } else {
-            resultDescription.textContent = `You lose`;
-        }
-        
-    });
     
+const result = checkResult(topRow1, topRow2, topRow3);
+if (result === true) {
+    user.wallet += topRow1.value;
+
+    resultDescription.textContent = `You win $${topRow1.value}`;
+} else {
+    resultDescription.textContent = `You lose`;
+}
     
 
     user.wallet = user.wallet - 5;
@@ -181,7 +139,7 @@ function makeResultsButton(){
 
 
 // generates a random object from the slots data
-function generateRandom(array) {
+export function generateRandom(array) {
     const indexNumber = Math.floor(Math.random() * 3);
     const randomObject = array[indexNumber];
 
