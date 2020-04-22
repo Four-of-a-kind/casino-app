@@ -31,7 +31,7 @@ loadUserProfile(user);
 // reel3Image.src = reel3.image;
 
 // make superArray from slotsData
-const superArray = generateSuperArray(slotsData1)
+const superArray = generateSuperArray(slotsData1);
 
 
 // this for loop creates three list items from superarray on page load
@@ -74,18 +74,17 @@ spinButton.addEventListener('click', () => {
 // one function that takes in array and changes images
 // another function that takes in three arrays and places them into superarray
 
-    const imgli = document.getElementById('imgli');
     const newSuperArray = generateSuperArray(slotsData1);
 
-        img1.src = newSuperArray[0][0].image;
-        img2.src = newSuperArray[0][1].image;
-        img3.src = newSuperArray[0][2].image;
-        img4.src = newSuperArray[1][0].image;
-        img5.src = newSuperArray[1][1].image;
-        img6.src = newSuperArray[1][2].image;
-        img7.src = newSuperArray[2][0].image;
-        img8.src = newSuperArray[2][1].image;
-        img9.src = newSuperArray[2][2].image;
+    img1.src = newSuperArray[0][0].image;
+    img2.src = newSuperArray[0][1].image;
+    img3.src = newSuperArray[0][2].image;
+    img4.src = newSuperArray[1][0].image;
+    img5.src = newSuperArray[1][1].image;
+    img6.src = newSuperArray[1][2].image;
+    img7.src = newSuperArray[2][0].image;
+    img8.src = newSuperArray[2][1].image;
+    img9.src = newSuperArray[2][2].image;
     
 
     // const result = checkResult(newSuperArray);
