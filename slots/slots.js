@@ -57,7 +57,6 @@ superArray.forEach((array) => {
     ul.appendChild(li);
     newReel.appendChild(ul);
     
-    console.log(newReel, 'hey');
 
 });
 
@@ -65,16 +64,15 @@ spinButton.addEventListener('click', () => {
     
     superArray.forEach((array) => {
 
-        let reel1 = generateRandom(array);
-        let reel2 = generateRandom(array);
-        let reel3 = generateRandom(array);
-        let reel4 = generateRandom(array);
-        let reel5 = generateRandom(array);
-        let reel6 = generateRandom(array);
-        let reel7 = generateRandom(array);
-        let reel8 = generateRandom(array);
-        let reel9 = generateRandom(array);
-        let reel10 = generateRandom(array);
+        let topRow1 = generateRandom(array);
+        let middleRow1 = generateRandom(array);
+        // let reel3 = generateRandom(array);
+        let topRow2 = generateRandom(array);
+        let middleRow2 = generateRandom(array);
+        // let reel6 = generateRandom(array);
+        let topRow3 = generateRandom(array);
+        let middleRow3 = generateRandom(array);
+        // let reel9 = generateRandom(array);
 
 
         let images = document.querySelectorAll('img');
@@ -83,21 +81,31 @@ spinButton.addEventListener('click', () => {
         // const img2 = document.getElementById('imageTwo');
         // const img3 = document.getElementById('imageThree');
 
-        images[0].src = reel1.image;
-        images[1].src = reel2.image;
-        images[2].src = reel3.image;
-        images[3].src = reel4.image;
-        images[4].src = reel5.image;
-        images[5].src = reel6.image;
-        images[6].src = reel7.image;
-        images[7].src = reel8.image;
-        images[8].src = reel9.image;
-        images[9].src = reel10.image;
+        images[0].src = topRow1.image;
+        images[1].src = middleRow1.image;
+        // images[2].src = reel3.image;
+        images[3].src = topRow2.image;
+        images[4].src = middleRow2.image;
+        // images[5].src = reel6.image;
+        images[6].src = topRow3.image;
+        images[7].src = middleRow3.image;
+        // images[8].src = reel9.image;
 
-    
+        console.log(topRow1);
+
         // img1.src = reel1.image;
         // img2.src = reel2.image;
         // img3.src = reel3.image;
+        
+        // check results/compare reel1 and reel2, if equal update view
+        const result = checkResult(topRow1, topRow2, topRow3);
+        if (result === true) {
+            user.wallet += topRow1.value;
+
+            resultDescription.textContent = `You win $${topRow1.value}`;
+        } else {
+            resultDescription.textContent = `You lose`;
+        }
         
     });
     
@@ -108,19 +116,11 @@ spinButton.addEventListener('click', () => {
     
 
 
-    //check results/compare reel1 and reel2, if equal update view
-    const result = checkResult(reel1, reel2, reel3);
-    if (result === true) {
-        user.wallet += reel1.value;
-
-        resultDescription.textContent = `You win $${reel1.value}`;
-    } else {
-        resultDescription.textContent = `You lose`;
-    }
     //decrease spin counter
     spinCounter--;
     //decrease spin and update view
     spinSpan.textContent = spinCounter;
+
 
     //update userprofile view
     loadUserProfile(user);
