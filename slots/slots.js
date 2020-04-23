@@ -235,7 +235,9 @@ spinButton.addEventListener('click', () => {
 
         
         user.wallet += resultValue;
-        playSound(winSound);
+        setTimeout(function() {playSound(winSound); }, 2900);
+
+        
     }
 
     user.wallet = user.wallet - 5;
