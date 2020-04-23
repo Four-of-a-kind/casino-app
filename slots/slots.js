@@ -232,7 +232,7 @@ spinButton.addEventListener('click', () => {
         resultDescription.classList.remove('hidden');
         resultDescription.style.color = 'red';
         setTimeout(function() {resultDescription.textContent = 'You Lose'; }, 3300);
-        setTimeout(function() {playSound(spinStart); }, 2900);
+        setTimeout(function() {playSound(spinStart); }, 3300);
 
     } else {
         resultDescription.classList.remove('hidden');
