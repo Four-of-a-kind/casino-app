@@ -243,14 +243,14 @@ left: 500px;
     left: 500px;
  }
 
- #diagonal1-row-win-line {
+ #diagonal-1-row-win-line {
     position: relative;
     bottom: 1750px;
     left: 500px;
     transform: rotate(35deg);
  }
 
- #diagonal2-row-win-line {
+ #diagonal-2-row-win-line {
     position: relative;
     bottom: 1755px;
     left: 500px;
