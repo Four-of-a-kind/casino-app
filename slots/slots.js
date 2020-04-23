@@ -24,6 +24,7 @@ const resultsButton = document.getElementById('results-button');
 
 const winSound = document.getElementById('win-sound');
 const spinStart = document.getElementById('spin-start-sound');
+const spinningSound = document.getElementById('spinning');
 
 
 let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
@@ -177,7 +178,6 @@ spinButton.addEventListener('click', () => {
         reelZone.classList.remove('imgli');
         return reelZone;
     }
-    
     reelZone.classList.add('imgli');
 
     topRowWinLine.classList.add('hidden');
@@ -225,13 +225,14 @@ spinButton.addEventListener('click', () => {
 //everything works. No further action required. 
     
     // play spin start
-    playSound(spinStart);
+    playSound(spinningSound)
     const resultValue = checkResult(newSuperArray);
 
     if (resultValue === 0) {
         resultDescription.classList.remove('hidden');
         resultDescription.style.color = 'red';
         setTimeout(function() {resultDescription.textContent = 'You Lose'; }, 3300);
+        setTimeout(function() {playSound(spinStart); }, 2900);
 
     } else {
         resultDescription.classList.remove('hidden');
