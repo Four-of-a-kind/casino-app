@@ -1,5 +1,5 @@
 import { slotsData1 } from '../data/slots-data.js';
-import { checkResult } from '../common/utils.js';
+// import { checkResult } from '../common/utils.js';
 import { generateSuperArray } from './generateSuperArray.js';
 
 // bring elements from DOM
@@ -7,10 +7,16 @@ const userNameSpan = document.getElementById('user-name-span');
 const walletSpan = document.getElementById('wallet-span');
 const spinSpan = document.getElementById('spin-span');
 const spinButton = document.getElementById('spin-button');
-const resultsButtonDiv = document.getElementById('results-button-div');
+// const resultsButtonDiv = document.getElementById('results-button-div');
 const resultDescription = document.getElementById('result-description');
 const reelZone = document.getElementById('reel-zone');
 const spinMessage = document.getElementById('spin-message');
+
+const topRowWinLine = document.getElementById('top-row-win-line');
+const middleRowWinLine = document.getElementById('middle-row-win-line');
+const bottomRowWinLine = document.getElementById('bottom-row-win-line');
+const diagonalRowWinLineOne = document.getElementById('diagonal-1-row-win-line');
+const diagonalRowWinLineTwo = document.getElementById('diagonal-2-row-win-line');
 
 const resultsButton = document.getElementById('results-button');
 
@@ -25,7 +31,7 @@ let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 const user = JSON.parse(localStorage.getItem('USER'));
 
 // intialize spins
-let spinCounter = 5;
+let spinCounter = 50;
 spinSpan.textContent = spinCounter;
 
 loadUserProfile(user);
@@ -169,6 +175,12 @@ spinButton.addEventListener('click', () => {
     }
     
     reelZone.classList.add('imgli');
+
+    topRowWinLine.classList.add('hidden');
+    middleRowWinLine.classList.add('hidden');
+    bottomRowWinLine.classList.add('hidden');
+    diagonalRowWinLineOne.classList.add('hidden');
+    diagonalRowWinLineTwo.classList.add('hidden');
     
 
     const newSuperArray = generateSuperArray(slotsData1);
@@ -267,18 +279,18 @@ resultsButton.addEventListener('click', () => {
 });
 
 // results button
-function makeResultsButton(){
-    // const resultsButton = document.createElement('button');
-    resultsButton.textContent = 'Results';
+// function makeResultsButton(){
+//     // const resultsButton = document.createElement('button');
+//     resultsButton.textContent = 'Results';
 
-    resultsButton.classList.toggle('hidden');
+//     resultsButton.classList.toggle('hidden');
 
-    resultsButton.addEventListener('click', () => {
-        window.location = '../results/';
+//     resultsButton.addEventListener('click', () => {
+//         window.location = '../results/';
 
-    });
-    resultsButtonDiv.appendChild(resultsButton);
-}
+//     });
+//     resultsButtonDiv.appendChild(resultsButton);
+// }
 
 
 
@@ -299,4 +311,37 @@ function loadUserProfile(user){
 // playSound function plays sound
 function playSound(x) {
     x.play();
+}
+
+
+function checkResult(superArray) {
+    let totalWinValue = 0;
+
+    // horizontal rows
+    if (superArray[0][0].id === superArray[1][0].id && superArray[0][0].id === superArray[2][0].id){
+        totalWinValue += superArray[0][0].value;
+        
+        topRowWinLine.classList.remove('hidden');
+    }   
+    if (superArray[0][1].id === superArray[1][1].id && superArray[0][1].id === superArray[2][1].id){
+        totalWinValue += superArray[0][1].value;
+        middleRowWinLine.classList.remove('hidden');
+    }
+    if (superArray[0][2].id === superArray[1][2].id && superArray[0][2].id === superArray[2][2].id){
+        totalWinValue += superArray[0][2].value;
+
+        bottomRowWinLine.classList.remove('hidden');
+    }
+    // diagonals
+    if (superArray[0][0].id === superArray[1][1].id && superArray[0][0].id === superArray[2][2].id){
+        totalWinValue += superArray[2][2].value;
+        diagonalRowWinLineOne.classList.remove('hidden');
+    }
+
+    if (superArray[0][2].id === superArray[1][1].id && superArray[0][2].id === superArray[2][0].id){
+        totalWinValue += superArray[2][0].value;
+        diagonalRowWinLineTwo.classList.remove('hidden');
+    }
+
+    return totalWinValue;
 }
