@@ -44,8 +44,8 @@ function makeImages(_superArray) {
         const img8 = document.createElement('img');
         const img9 = document.createElement('img');
         const img10 = document.createElement('img');
-    
-    
+
+       
         //img src will be equal to 10 element images created above
         img1.src = _superArray[i][0].image;
         img2.src = _superArray[i][1].image;
@@ -59,13 +59,13 @@ function makeImages(_superArray) {
         img10.src = _superArray[i][9].image;
 
 
-
-        reelZone.append(imgli);
-        imgli.append(img1, img2, img3, img4, img5, img6, img7, img8, img9, img10);
         imgli.id = 'imgli';
         reelZone.classList.add('imgli');
+        imgli.append(img1, img2, img3, img4, img5, img6, img7, img8, img9, img10);
+        reelZone.append(imgli);
         
         
+    
         img1.id = JSON.stringify(i) + 'img1';
         img2.id = JSON.stringify(i) + 'img2';
         img3.id = JSON.stringify(i) + 'img3';
@@ -114,15 +114,41 @@ const img28 = document.getElementById('2img8');
 const img29 = document.getElementById('2img9');
 const img30 = document.getElementById('2img10');
 
+
+img1.classList.add('slotimg');
+img2.classList.add('slotimg');
+img3.classList.add('slotimg');
+img4.classList.add('slotimg');
+img5.classList.add('slotimg');
+img6.classList.add('slotimg');
+img7.classList.add('slotimg');
+img8.classList.add('slotimg');
+img9.classList.add('slotimg');
+img10.classList.add('slotimg');
+img11.classList.add('slotimg');
+img12.classList.add('slotimg');
+img13.classList.add('slotimg');
+img14.classList.add('slotimg');
+img15.classList.add('slotimg');
+img16.classList.add('slotimg');
+img17.classList.add('slotimg');
+img18.classList.add('slotimg');
+img19.classList.add('slotimg');
+img20.classList.add('slotimg');
+img21.classList.add('slotimg');
+img22.classList.add('slotimg');
+img23.classList.add('slotimg');
+img24.classList.add('slotimg');
+img25.classList.add('slotimg');
+img26.classList.add('slotimg');
+img27.classList.add('slotimg');
+img28.classList.add('slotimg');
+img29.classList.add('slotimg');
+img30.classList.add('slotimg');
+
+
+
 //getting 30 elements by id and putting 10 objects in 3 arrays for our "spinning reel".
-
-
-
-
-
-
-
-
 
 
 spinButton.addEventListener('click', () => {
@@ -174,7 +200,6 @@ spinButton.addEventListener('click', () => {
     img30.src = newSuperArray[2][9].image;
     
 //everything works. No further action required. 
-    
     
     const resultValue = checkResult(newSuperArray);
 
