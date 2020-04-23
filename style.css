@@ -6,21 +6,27 @@ font-family: 'Noto Sans JP', sans-serif;
 }
 
 header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
     margin-top: 25px;
     width: 55%;
     text-align: center;
-    justify-content: center;
     border: 2px black solid;
     border-radius: 25px;
     padding: 20px; 
-    height: 175px;
-    background: #b2888c;
+    height: 100px;
+    background: khaki;
     box-shadow: gray 1px 2px 20px 10px;
 }
+
+
 h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 50px;
+font-family: 'Pacifico', cursive;
+font-size: 50px;
+color: hsl(237, 14%, 25%);
+vertical-align: middle;
 }
 
 #main-section, div {
@@ -56,4 +62,8 @@ h1 {
  input {
      height: 25px;
      font-size: 20px;
+ }
+
+ footer{
+     font-size: x-small;
  }

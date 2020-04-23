@@ -34,12 +34,15 @@ const stringyAllTimeArray = JSON.stringify(allTimeArray);
 localStorage.setItem('LEADERBOARD', stringyAllTimeArray);
 
 if (user.wallet < 10){
-    resultSpan.textContent = 'You won a sandwich!';
+    resultSpan.textContent = 'You won some soap!';
+    resultImage.src = '../assets/soap.png';
 } if (user.wallet > 9 && user.wallet < 50){
-    resultSpan.textContent = 'You won steak dinner!';
+    resultSpan.textContent = 'You won hand sanitizer!';
+    resultImage.src = '../assets/hand_sanitizer.png';
 }
 else {
-    resultSpan.textContent = 'You won a vacation!';
+    resultSpan.textContent = 'You won toilet paper!!!';
+    resultImage.src = '../assets/tp.png';
 }
     
 resetButton.addEventListener('click', () => {
