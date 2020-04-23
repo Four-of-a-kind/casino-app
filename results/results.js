@@ -22,7 +22,7 @@ sortedAllTimeArray.forEach((userScore) => {
     const name = document.createElement('h1');
     const score = document.createElement('h1');
 
-    name.textContent = `name: ${userScore.name}`;
+    name.textContent = `${userScore.name}`;
     score.textContent = `score: ${userScore.wallet}`;
 
     list.append(name, score);
