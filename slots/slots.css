@@ -91,7 +91,7 @@ ul {
     
 }
 
-button:hover {
+#spin-button:hover {
     background: lime;
 }
 
@@ -148,7 +148,7 @@ button:hover {
 #spin-message {
     position: relative;
     z-index: 4;
-    bottom: 1050px;
+    bottom: 1566px;
     left: 8px;
     color: red;
     font-size: 15px;
