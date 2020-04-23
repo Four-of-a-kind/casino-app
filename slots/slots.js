@@ -11,6 +11,8 @@ const resultsButtonDiv = document.getElementById('results-button-div');
 const resultDescription = document.getElementById('result-description');
 const reelZone = document.getElementById('reel-zone');
 const spinMessage = document.getElementById('spin-message');
+const resultsButton = document.getElementById('results-button');
+
 
 
 let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
@@ -204,8 +206,10 @@ spinButton.addEventListener('click', () => {
     const resultValue = checkResult(newSuperArray);
 
     if (resultValue === 0) {
+        resultDescription.style.color = 'red';
         resultDescription.textContent = 'You Lose';
     } else {
+        resultDescription.style.color = 'lime';
         resultDescription.textContent = `You win $${resultValue}`;
         user.wallet += resultValue;
     }
@@ -239,11 +243,13 @@ spinButton.addEventListener('click', () => {
         if (spinCounter === 0){
             spinMessage.textContent = 'You are out of spins';
         } else {
-            resultDescription.textContent = 'Out of money! You are too broke to play';
+            resultDescription.textContent = 'Out of money!';
         }
 
         spinButton.disabled = true;
-        makeResultsButton();
+        resultsButton.classList.toggle('hidden');
+
+        // makeResultsButton();
         // window.location = '../results/';
     }   
 });
@@ -251,8 +257,10 @@ spinButton.addEventListener('click', () => {
 
 // results button
 function makeResultsButton(){
-    const resultsButton = document.createElement('button');
-    resultsButton.textContent = 'Go to results';
+    // const resultsButton = document.createElement('button');
+    resultsButton.textContent = 'Results';
+
+    resultsButton.classList.toggle('hidden');
 
     resultsButton.addEventListener('click', () => {
         window.location = '../results/';
