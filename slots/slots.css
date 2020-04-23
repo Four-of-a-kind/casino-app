@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Pacifico&display=swap');
 
+body {
+    background: rgb(214, 226, 229);
+    font-family: 'Noto Sans JP', sans-serif;
+ 
+}
 
 #header {
     margin: 30px auto;
