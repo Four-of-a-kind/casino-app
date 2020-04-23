@@ -12,15 +12,13 @@
 <body>
     <header id="header">
         
-            <h2>Username: <span id="user-name-span"></span></h2>
-            <h2>Wallet: <span id="wallet-span"></span></h2>
-            <h2>Spins: <span id="spin-span"></span></h2>        
+    
         
     </header>
 
     <main>
         <section>
-            <h1 id="result-description"></h1> <h1 id="spin-message"></h1>
+            <h1 id="result-description"></h1> 
             <button id="spin-button">Spin</button>
 
             <div id='slot-machine-div'>
@@ -31,15 +29,27 @@
 
                 </ul> 
             </section>
+            
         </section>
-        <h3 id="results"></h3>
-        <div id='results-button-div'></div>
+
+        
+
+        <div id="user-name-box"> <h2>Username: <span id="user-name-span"></span></h2> </div> 
+        <div id="wallet-box"> <h2>Wallet: <span id="wallet-span"></span></h2> </div>
+       <div id="spin-box"> <h2>Spins: <span id="spin-span"></span></h2> </div>  
+
+       <div id='results-button-div'></div> <button class="hidden" id="results-button">Results</button></div>
+
+       <h1 id="spin-message"></h1>
+
+        
         <audio id='win-sound'>
             <source src='../assets/win.mp3'>
         </audio>
         <audio id='spin-start-sound'>
             <source src='../assets/spinstart.mp3'>
         </audio>
+
     </main>
     <script type="module" src="slots.js"></script>
 </body>

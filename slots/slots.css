@@ -1,23 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Pacifico&display=swap');
 
 body {
-    background: rgb(214, 226, 229);
+    /* background: rgb(214, 226, 229); */
+    background: white;
     font-family: 'Noto Sans JP', sans-serif;
+    height: 1000px;
+    width: 1200px;
     min-width: 1000px;
+    text-align: center;
 
 }
 
 #slot-machine-div {
     text-align: center;
-    background: rgb(214, 226, 229);
+    /* background: rgb(214, 226, 229); */
     min-width: 1000px;
 
 }
 
 #slot-machine-image {
     position: relative;
-    height: 1200px;
-    width: 1200px;
+    height: 800px;
+    width: 800px;
     z-index: 3;
     left: 20px;
     bottom: 10px;
@@ -25,7 +29,7 @@ body {
 }
 
 
-#header {
+/* #header {
     margin: 30px auto;
     width: 50%;
     text-align: center;
@@ -34,9 +38,9 @@ body {
     background: lightskyblue;
     box-shadow: 1px 2px 10px 4px;
     padding: 1px;
-    z-index: 2;
+    z-index: 4; */
 
-}
+/* } */
 
 ul {
     margin: auto;
@@ -60,26 +64,29 @@ ul {
     /* width: 80%; */
     text-align: center;
     display: grid;
-    grid-template-columns: 125px 125px 125px;
+    grid-template-columns: 80px 80px 80px;
     z-index: 1;
-    position: absolute;
-    top: -185px;
+    position: relative;
+    top: -1330px;
+    left: 72px;
     min-width: 1000px;
 }
 
-button {
+#spin-button {
     background: lightskyblue;
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     position: relative;
     border: 1px solid black;
-    top: 586px;
-    left: 657px;
+    top: 387.5px;
+    left: 9px;
     z-index: 4;
     border-radius: 50%;
     cursor: pointer;
     transition: .3s;
     font-weight: bold;
+    font-size: 8px;
+    text-align: center;
 
     
 }
@@ -105,8 +112,8 @@ button:hover {
 
 
 .slotimg {
-    width: 76px;
-    height: 76px;
+    width: 49px;
+    height: 49px;
     border-radius: 50%;
 }
 
@@ -128,5 +135,71 @@ button:hover {
         transform: translateY(0);
     }
 }
-    
 
+
+#result-description {
+    position: relative;
+    z-index: 4;
+    top: 170px;
+    left: 6px;
+    font-size: 22px;
+}
+
+#spin-message {
+    position: relative;
+    z-index: 4;
+    bottom: 1050px;
+    left: 8px;
+    color: red;
+    font-size: 15px;
+}
+
+#results-button {
+    font-size: 6px;
+    font-weight: normal;
+    background: lightskyblue;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 1px solid black;
+    bottom: 1108.5px;
+    left: 99px;
+    z-index: 4;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: bold;
+    text-align: center;
+}
+    
+#user-name-box {
+    position: relative;
+    z-index: 5;
+    bottom: 928px;
+    left: 10px;
+    color: yellow;
+    font-size: 10px;
+}
+
+#wallet-box {
+    position: relative;
+    z-index: 5;
+    bottom: 993px;
+    right: 120px;
+    font-size: 10px;
+    color: yellow;
+}
+
+#spin-box {
+    position: relative;
+    z-index: 5;
+    bottom: 1029px;
+    left: 150px;
+    font-size: 10px;
+    color: yellow;
+}
+
+.hidden {
+    visibility: hidden;
+    /* display: none; */
+}
