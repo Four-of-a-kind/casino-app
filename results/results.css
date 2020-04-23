@@ -97,3 +97,14 @@ button {
 button:hover {
     background: lawngreen;
 }
+
+#result-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+#about-us {
+    text-align: center;
+}
