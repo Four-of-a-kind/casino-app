@@ -25,7 +25,7 @@ let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 const user = JSON.parse(localStorage.getItem('USER'));
 
 // intialize spins
-let spinCounter = 50;
+let spinCounter = 5;
 spinSpan.textContent = spinCounter;
 
 loadUserProfile(user);
@@ -262,6 +262,9 @@ spinButton.addEventListener('click', () => {
     }   
 });
 
+resultsButton.addEventListener('click', () => {
+    location.href = '../results/';
+});
 
 // results button
 function makeResultsButton(){
