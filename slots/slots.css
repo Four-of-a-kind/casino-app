@@ -171,6 +171,10 @@ ul {
     font-weight: bold;
     text-align: center;
 }
+
+#results-button:hover {
+    background: lime;
+}
     
 #user-name-box {
     position: relative;
@@ -224,31 +228,31 @@ ul {
 
 #top-row-win-line {
 position: relative;
-bottom: 1806px;
+bottom: 1797px;
 left: 500px;
 }
  #middle-row-win-line {
     position: relative;
-    bottom: 1756px;
+    bottom: 1746px;
     left: 500px;
  }
 
  #bottom-row-win-line {
     position: relative;
-    bottom: 1706px;
+    bottom: 1696px;
     left: 500px;
  }
 
  #diagonal1-row-win-line {
     position: relative;
-    bottom: 1760px;
+    bottom: 1750px;
     left: 500px;
     transform: rotate(35deg);
  }
 
  #diagonal2-row-win-line {
     position: relative;
-    bottom: 1765px;
+    bottom: 1755px;
     left: 500px;
     transform: rotate(-35deg);
  }
