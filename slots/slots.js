@@ -34,6 +34,8 @@ const user = JSON.parse(localStorage.getItem('USER'));
 let spinCounter = 25;
 spinSpan.textContent = spinCounter;
 
+resultDescription.textContent = '';
+
 loadUserProfile(user);
 
 
@@ -168,6 +170,7 @@ spinButton.addEventListener('click', () => {
     // on click generate new superArray
     // one function that takes in array and changes images
     // another function that takes in three arrays and places them into superarray
+    resultDescription.classList.add('hidden');
     resultDescription.textContent = '';
 
     if (reelZone.classList.contains('imgli')) {
@@ -226,10 +229,12 @@ spinButton.addEventListener('click', () => {
     const resultValue = checkResult(newSuperArray);
 
     if (resultValue === 0) {
+        resultDescription.classList.remove('hidden');
         resultDescription.style.color = 'red';
         setTimeout(function() {resultDescription.textContent = 'You Lose'; }, 3300);
 
     } else {
+        resultDescription.classList.remove('hidden');
         resultDescription.style.color = 'lime';
         setTimeout(function() {resultDescription.textContent = `You win $${resultValue}`; }, 3300);
 
