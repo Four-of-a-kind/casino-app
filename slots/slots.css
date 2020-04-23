@@ -1,14 +1,42 @@
+
+
+#header {
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    background: red;
+    position: relative;
+    z-index: 2;
+}
+
 ul {
+    margin: auto;
    list-style: none;
 }
 
-#reel-zone {
+#reel-section {
+    margin: auto;
+    width: 410px;
+    text-align: center;
     display: grid;
-    grid-template-columns: 300px 300px 300px;
-    position: absolute;
-    top: -700px;
-    left: 500px;
 }
+
+#reel-zone {
+    margin: auto;
+    /* width: 80%; */
+    text-align: center;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    z-index: 1;
+    position: absolute;
+    top: -500px;
+}
+
+
+/* img {
+    width: 100px;
+    height: 100px;
+} */
 
 
 #imgli {
@@ -22,8 +50,7 @@ ul {
     animation-name: newSpin;
     animation-duration: 3s;
     animation-fill-mode: forwards;
-    top: -700px;
-    
+    /* top: -700px; */
 }
 
 @keyframes firstSpin {
@@ -44,4 +71,8 @@ ul {
     }
 }
     
+
+ .slotimg {
+    width: 100px;
+    height: 100px;
 }
