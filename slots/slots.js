@@ -168,7 +168,8 @@ spinButton.addEventListener('click', () => {
     // on click generate new superArray
     // one function that takes in array and changes images
     // another function that takes in three arrays and places them into superarray
-    
+    resultDescription.textContent = '';
+
     if (reelZone.classList.contains('imgli')) {
         reelZone.classList.remove('imgli');
         return reelZone;
@@ -226,10 +227,13 @@ spinButton.addEventListener('click', () => {
 
     if (resultValue === 0) {
         resultDescription.style.color = 'red';
-        resultDescription.textContent = 'You Lose';
+        setTimeout(function() {resultDescription.textContent = 'You Lose'; }, 3300);
+
     } else {
         resultDescription.style.color = 'lime';
-        resultDescription.textContent = `You win $${resultValue}`;
+        setTimeout(function() {resultDescription.textContent = `You win $${resultValue}`; }, 3300);
+
+        
         user.wallet += resultValue;
         playSound(winSound);
     }
@@ -321,26 +325,34 @@ function checkResult(superArray) {
     if (superArray[0][0].id === superArray[1][0].id && superArray[0][0].id === superArray[2][0].id){
         totalWinValue += superArray[0][0].value;
         
-        topRowWinLine.classList.remove('hidden');
+        setTimeout(function() {topRowWinLine.classList.remove('hidden'); }, 2900);
     }   
     if (superArray[0][1].id === superArray[1][1].id && superArray[0][1].id === superArray[2][1].id){
         totalWinValue += superArray[0][1].value;
-        middleRowWinLine.classList.remove('hidden');
+
+        
+        setTimeout(function() {middleRowWinLine.classList.remove('hidden'); }, 2900);
+
     }
     if (superArray[0][2].id === superArray[1][2].id && superArray[0][2].id === superArray[2][2].id){
         totalWinValue += superArray[0][2].value;
 
-        bottomRowWinLine.classList.remove('hidden');
+        
+        setTimeout(function() {bottomRowWinLine.classList.remove('hidden'); }, 2900);
     }
     // diagonals
     if (superArray[0][0].id === superArray[1][1].id && superArray[0][0].id === superArray[2][2].id){
         totalWinValue += superArray[2][2].value;
-        diagonalRowWinLineOne.classList.remove('hidden');
+        
+        setTimeout(function() {diagonalRowWinLineOne.classList.remove('hidden'); }, 2900);
+
     }
 
     if (superArray[0][2].id === superArray[1][1].id && superArray[0][2].id === superArray[2][0].id){
         totalWinValue += superArray[2][0].value;
-        diagonalRowWinLineTwo.classList.remove('hidden');
+
+        setTimeout(function() {diagonalRowWinLineTwo.classList.remove('hidden'); }, 2900);
+
     }
 
     return totalWinValue;
