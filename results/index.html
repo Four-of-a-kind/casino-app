@@ -9,25 +9,37 @@
     <title>Results</title>
 </head>
 <header>
-    <nav>
-        <img src="" alt="">
+        <img id="header-image" src="../assets/couch.png" alt="">
         <h2>Username: <span id="user-name-span"></span></h2>
         <h2>Wallet: <span id="wallet-span"></span></h2>
-    </nav>
 </header>
 <body>
-    <h1>Welcome to the Results</h1>
-    <container>
-        <h2>LEADERBOARD</h2>
-        <ul id='leaderboard-ul'>
+    
+    <section id="results">
+        <h1 >Everyone's a Winner!</h1>
 
-        </ul>
-       
-        <img id='result-image'/>
         <div id='result-span'></div>
-        <button id='reset-button'>RESET</button>
-    </container>
+        <img id='result-image'/>
+    </section>
+
+    <section id='container'>
+        <h2 id="leaderboard">LEADERBOARD</h2>
+        <ol id='leaderboard-ul'>
+
+        </ol>
+       
+       
+    </section>
+
+    <section id="button-section">
+        <button id='reset-button'>Play Again</button>
+    </section>
+
     <script type="module" src="results.js"></script>
+
+    <div id="about-us">
+        <a href= "../about-me/">About the team that brought you Casino del Corona</a>
+    </div>
 </body>
 
 </html>
