@@ -1,23 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Pacifico&display=swap');
 
 body {
-    background: rgb(214, 226, 229);
+    /* background: rgb(214, 226, 229); */
+    background: white;
     font-family: 'Noto Sans JP', sans-serif;
+    height: 1000px;
+    width: 1200px;
     min-width: 1000px;
+    text-align: center;
 
 }
 
 #slot-machine-div {
     text-align: center;
-    background: rgb(214, 226, 229);
+    /* background: rgb(214, 226, 229); */
     min-width: 1000px;
 
 }
 
 #slot-machine-image {
     position: relative;
-    height: 1200px;
-    width: 1200px;
+    height: 800px;
+    width: 800px;
     z-index: 3;
     left: 20px;
     bottom: 10px;
@@ -60,26 +64,29 @@ ul {
     /* width: 80%; */
     text-align: center;
     display: grid;
-    grid-template-columns: 125px 125px 125px;
+    grid-template-columns: 80px 80px 80px;
     z-index: 1;
-    position: absolute;
-    top: -185px;
+    position: relative;
+    top: -1330px;
+    left: 72px;
     min-width: 1000px;
 }
 
 button {
     background: lightskyblue;
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     position: relative;
     border: 1px solid black;
-    top: 586px;
-    left: 657px;
+    top: 386px;
+    left: 8px;
     z-index: 4;
     border-radius: 50%;
     cursor: pointer;
     transition: .3s;
     font-weight: bold;
+    font-size: 8px;
+    text-align: center;
 
     
 }
@@ -105,8 +112,8 @@ button:hover {
 
 
 .slotimg {
-    width: 76px;
-    height: 76px;
+    width: 49px;
+    height: 49px;
     border-radius: 50%;
 }
 
@@ -127,6 +134,24 @@ button:hover {
     to {
         transform: translateY(0);
     }
+}
+
+
+#result-description {
+    position: relative;
+    z-index: 4;
+    top: 170px;
+    left: 6px;
+    font-size: 22px;
+}
+
+#spin-message {
+    position: relative;
+    z-index: 4;
+    bottom: 906px;
+    left: 8px;
+    color: red;
+    font-size: 15px;
 }
     
 
