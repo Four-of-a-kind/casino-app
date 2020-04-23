@@ -267,18 +267,18 @@ resultsButton.addEventListener('click', () => {
 });
 
 // results button
-function makeResultsButton(){
-    // const resultsButton = document.createElement('button');
-    resultsButton.textContent = 'Results';
+// function makeResultsButton(){
+//     // const resultsButton = document.createElement('button');
+//     resultsButton.textContent = 'Results';
 
-    resultsButton.classList.toggle('hidden');
+//     resultsButton.classList.toggle('hidden');
 
-    resultsButton.addEventListener('click', () => {
-        window.location = '../results/';
+//     resultsButton.addEventListener('click', () => {
+//         window.location = '../results/';
 
-    });
-    resultsButtonDiv.appendChild(resultsButton);
-}
+//     });
+//     resultsButtonDiv.appendChild(resultsButton);
+// }
 
 
 

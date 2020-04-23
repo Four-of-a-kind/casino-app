@@ -203,3 +203,52 @@ button:hover {
     visibility: hidden;
     /* display: none; */
 }
+
+#block-array-section {
+    height: 500px;
+    width: 1700px;
+    background: white;
+    text-align: center;
+    position: relative;
+    bottom: 2000px;
+    z-index: 5;
+}
+
+.win-line {
+    height: 3px;
+    width: 220px;
+    background: lime;
+    border-radius: 30px;
+    z-index: 5;
+}
+
+#top-row-win-line {
+position: relative;
+bottom: 1806px;
+left: 500px;
+}
+ #middle-row-win-line {
+    position: relative;
+    bottom: 1756px;
+    left: 500px;
+ }
+
+ #bottom-row-win-line {
+    position: relative;
+    bottom: 1706px;
+    left: 500px;
+ }
+
+ #diagonal1-row-win-line {
+    position: relative;
+    bottom: 1760px;
+    left: 500px;
+    transform: rotate(35deg);
+ }
+
+ #diagonal2-row-win-line {
+    position: relative;
+    bottom: 1765px;
+    left: 500px;
+    transform: rotate(-35deg);
+ }
