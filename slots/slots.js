@@ -12,7 +12,7 @@ const resultDescription = document.getElementById('result-description');
 const reelZone = document.getElementById('reel-zone');
 const spinMessage = document.getElementById('spin-message');
 const winSound = document.getElementById('win-sound');
-
+const spinStart = document.getElementById('spin-start-sound');
 
 let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 
@@ -202,6 +202,8 @@ spinButton.addEventListener('click', () => {
     
 //everything works. No further action required. 
     
+    // play spin start
+    playSound(spinStart);
     const resultValue = checkResult(newSuperArray);
 
     if (resultValue === 0) {
