@@ -33,14 +33,15 @@ sortedAllTimeArray.forEach((userScore) => {
 const stringyAllTimeArray = JSON.stringify(allTimeArray);
 localStorage.setItem('LEADERBOARD', stringyAllTimeArray);
 
-if (user.wallet < 10){
+if (user.wallet < 25){
     resultSpan.textContent = 'You won some soap!';
     resultImage.src = '../assets/soap.png';
-} if (user.wallet > 9 && user.wallet < 50){
+
+} if (user.wallet > 24 && user.wallet < 50){
     resultSpan.textContent = 'You won hand sanitizer!';
     resultImage.src = '../assets/hand_sanitizer.png';
 }
-else {
+if (user.wallet > 49){
     resultSpan.textContent = 'You won toilet paper!!!';
     resultImage.src = '../assets/tp.png';
 }

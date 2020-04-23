@@ -31,7 +31,7 @@ let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 const user = JSON.parse(localStorage.getItem('USER'));
 
 // intialize spins
-let spinCounter = 50;
+let spinCounter = 25;
 spinSpan.textContent = spinCounter;
 
 loadUserProfile(user);

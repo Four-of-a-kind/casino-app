@@ -24,7 +24,7 @@ function makeUser(usernameInput) {
     const username = usernameInput.value;
     const UserObject = {
         name: username,
-        wallet: 50,
+        wallet: 75,
     };
 
     return UserObject;
