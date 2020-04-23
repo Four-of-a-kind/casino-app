@@ -11,8 +11,13 @@ const resultsButtonDiv = document.getElementById('results-button-div');
 const resultDescription = document.getElementById('result-description');
 const reelZone = document.getElementById('reel-zone');
 const spinMessage = document.getElementById('spin-message');
+
 const resultsButton = document.getElementById('results-button');
 
+
+
+const winSound = document.getElementById('win-sound');
+const spinStart = document.getElementById('spin-start-sound');
 
 
 let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
@@ -20,7 +25,7 @@ let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 const user = JSON.parse(localStorage.getItem('USER'));
 
 // intialize spins
-let spinCounter = 5;
+let spinCounter = 50;
 spinSpan.textContent = spinCounter;
 
 loadUserProfile(user);
@@ -203,6 +208,8 @@ spinButton.addEventListener('click', () => {
     
 //everything works. No further action required. 
     
+    // play spin start
+    playSound(spinStart);
     const resultValue = checkResult(newSuperArray);
 
     if (resultValue === 0) {
@@ -212,6 +219,7 @@ spinButton.addEventListener('click', () => {
         resultDescription.style.color = 'lime';
         resultDescription.textContent = `You win $${resultValue}`;
         user.wallet += resultValue;
+        playSound(winSound);
     }
 
     user.wallet = user.wallet - 5;
@@ -273,7 +281,7 @@ function makeResultsButton(){
 
 // generates a random object from the slots data
 export function generateRandom(array) {
-    const indexNumber = Math.floor(Math.random() * 3);
+    const indexNumber = Math.floor(Math.random() * 17);
     const randomObject = array[indexNumber];
 
     return randomObject;
@@ -283,4 +291,9 @@ export function generateRandom(array) {
 function loadUserProfile(user){
     userNameSpan.textContent = user.name;
     walletSpan.textContent = user.wallet;  
+}
+
+// playSound function plays sound
+function playSound(x) {
+    x.play();
 }
