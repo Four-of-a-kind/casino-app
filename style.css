@@ -42,7 +42,9 @@ vertical-align: middle;
     text-align: center;
  }
 
-
+img {
+  width: 60%;
+}
 
  button {
      margin-left: 20px;
