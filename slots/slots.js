@@ -320,6 +320,7 @@ function checkResult(superArray) {
     // horizontal rows
     if (superArray[0][0].id === superArray[1][0].id && superArray[0][0].id === superArray[2][0].id){
         totalWinValue += superArray[0][0].value;
+        
         topRowWinLine.classList.remove('hidden');
     }   
     if (superArray[0][1].id === superArray[1][1].id && superArray[0][1].id === superArray[2][1].id){
@@ -328,6 +329,7 @@ function checkResult(superArray) {
     }
     if (superArray[0][2].id === superArray[1][2].id && superArray[0][2].id === superArray[2][2].id){
         totalWinValue += superArray[0][2].value;
+
         bottomRowWinLine.classList.remove('hidden');
     }
     // diagonals

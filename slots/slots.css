@@ -204,6 +204,7 @@ ul {
 }
 
 .hidden {
+    /* transition-delay: 3s; */
     visibility: hidden;
     /* display: none; */
 }
