@@ -225,7 +225,7 @@ spinButton.addEventListener('click', () => {
 //everything works. No further action required. 
     
     // play spin start
-    playSound(spinningSound)
+    playSound(spinningSound);
     const resultValue = checkResult(newSuperArray);
 
     if (resultValue === 0) {
