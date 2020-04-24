@@ -1,5 +1,4 @@
 import { slotsData1 } from '../data/slots-data.js';
-// import { checkResult } from '../common/utils.js';
 import { generateSuperArray } from './generateSuperArray.js';
 
 // bring elements from DOM
@@ -7,7 +6,6 @@ const userNameSpan = document.getElementById('user-name-span');
 const walletSpan = document.getElementById('wallet-span');
 const spinSpan = document.getElementById('spin-span');
 const spinButton = document.getElementById('spin-button');
-// const resultsButtonDiv = document.getElementById('results-button-div');
 const resultDescription = document.getElementById('result-description');
 const reelZone = document.getElementById('reel-zone');
 const spinMessage = document.getElementById('spin-message');
@@ -24,6 +22,7 @@ const resultsButton = document.getElementById('results-button');
 
 const winSound = document.getElementById('win-sound');
 const spinStart = document.getElementById('spin-start-sound');
+const spinningSound = document.getElementById('spinning');
 
 
 let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
@@ -31,8 +30,10 @@ let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
 const user = JSON.parse(localStorage.getItem('USER'));
 
 // intialize spins
-let spinCounter = 50;
+let spinCounter = 25;
 spinSpan.textContent = spinCounter;
+
+resultDescription.textContent = '';
 
 loadUserProfile(user);
 
@@ -168,12 +169,13 @@ spinButton.addEventListener('click', () => {
     // on click generate new superArray
     // one function that takes in array and changes images
     // another function that takes in three arrays and places them into superarray
-    
+    resultDescription.classList.add('hidden');
+    resultDescription.textContent = '';
+
     if (reelZone.classList.contains('imgli')) {
         reelZone.classList.remove('imgli');
         return reelZone;
     }
-    
     reelZone.classList.add('imgli');
 
     topRowWinLine.classList.add('hidden');
@@ -221,17 +223,25 @@ spinButton.addEventListener('click', () => {
 //everything works. No further action required. 
     
     // play spin start
-    playSound(spinStart);
+    playSound(spinningSound);
     const resultValue = checkResult(newSuperArray);
 
     if (resultValue === 0) {
+        resultDescription.classList.remove('hidden');
         resultDescription.style.color = 'red';
-        resultDescription.textContent = 'You Lose';
+        setTimeout(function() {resultDescription.textContent = 'You Lose'; }, 3300);
+        setTimeout(function() {playSound(spinStart); }, 3300);
+
     } else {
+        resultDescription.classList.remove('hidden');
         resultDescription.style.color = 'lime';
-        resultDescription.textContent = `You win $${resultValue}`;
+        setTimeout(function() {resultDescription.textContent = `You win $${resultValue}`; }, 3300);
+
+        
         user.wallet += resultValue;
-        playSound(winSound);
+        setTimeout(function() {playSound(winSound); }, 2900);
+
+        
     }
 
     user.wallet = user.wallet - 5;
@@ -268,31 +278,12 @@ spinButton.addEventListener('click', () => {
 
         spinButton.disabled = true;
         resultsButton.classList.toggle('hidden');
-
-        // makeResultsButton();
-        // window.location = '../results/';
     }   
 });
 
 resultsButton.addEventListener('click', () => {
     location.href = '../results/';
 });
-
-// results button
-// function makeResultsButton(){
-//     // const resultsButton = document.createElement('button');
-//     resultsButton.textContent = 'Results';
-
-//     resultsButton.classList.toggle('hidden');
-
-//     resultsButton.addEventListener('click', () => {
-//         window.location = '../results/';
-
-//     });
-//     resultsButtonDiv.appendChild(resultsButton);
-// }
-
-
 
 // generates a random object from the slots data
 export function generateRandom(array) {
@@ -321,26 +312,34 @@ function checkResult(superArray) {
     if (superArray[0][0].id === superArray[1][0].id && superArray[0][0].id === superArray[2][0].id){
         totalWinValue += superArray[0][0].value;
         
-        topRowWinLine.classList.remove('hidden');
+        setTimeout(function() {topRowWinLine.classList.remove('hidden'); }, 2900);
     }   
     if (superArray[0][1].id === superArray[1][1].id && superArray[0][1].id === superArray[2][1].id){
         totalWinValue += superArray[0][1].value;
-        middleRowWinLine.classList.remove('hidden');
+
+        
+        setTimeout(function() {middleRowWinLine.classList.remove('hidden'); }, 2900);
+
     }
     if (superArray[0][2].id === superArray[1][2].id && superArray[0][2].id === superArray[2][2].id){
         totalWinValue += superArray[0][2].value;
 
-        bottomRowWinLine.classList.remove('hidden');
+        
+        setTimeout(function() {bottomRowWinLine.classList.remove('hidden'); }, 2900);
     }
     // diagonals
     if (superArray[0][0].id === superArray[1][1].id && superArray[0][0].id === superArray[2][2].id){
         totalWinValue += superArray[2][2].value;
-        diagonalRowWinLineOne.classList.remove('hidden');
+        
+        setTimeout(function() {diagonalRowWinLineOne.classList.remove('hidden'); }, 2900);
+
     }
 
     if (superArray[0][2].id === superArray[1][1].id && superArray[0][2].id === superArray[2][0].id){
         totalWinValue += superArray[2][0].value;
-        diagonalRowWinLineTwo.classList.remove('hidden');
+
+        setTimeout(function() {diagonalRowWinLineTwo.classList.remove('hidden'); }, 2900);
+
     }
 
     return totalWinValue;

@@ -1,21 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Pacifico&display=swap');
 
+
 body {
-    /* background: rgb(214, 226, 229); */
     background: white;
     font-family: 'Noto Sans JP', sans-serif;
     height: 1000px;
     width: 1200px;
-    min-width: 1000px;
+    min-width: 800px;
     text-align: center;
-
+    position: relative;
+    left: -150px;
 }
 
 #slot-machine-div {
     text-align: center;
-    /* background: rgb(214, 226, 229); */
     min-width: 1000px;
-
 }
 
 #slot-machine-image {
@@ -25,29 +24,12 @@ body {
     z-index: 3;
     left: 20px;
     bottom: 10px;
-
 }
 
-
-/* #header {
-    margin: 30px auto;
-    width: 50%;
-    text-align: center;
-    position: relative;
-    border-radius: 30px;
-    background: lightskyblue;
-    box-shadow: 1px 2px 10px 4px;
-    padding: 1px;
-    z-index: 4; */
-
-/* } */
-
 ul {
-    margin: auto;
+   margin: auto;
    list-style: none;
    min-width: 1000px;
-
-
 }
 
 #reel-section {
@@ -55,13 +37,10 @@ ul {
     width: 445px;
     text-align: center;
     display: grid;
-
-
 }
 
 #reel-zone {
     margin: auto;
-    /* width: 80%; */
     text-align: center;
     display: grid;
     grid-template-columns: 80px 80px 80px;
@@ -86,9 +65,7 @@ ul {
     transition: .3s;
     font-weight: bold;
     font-size: 8px;
-    text-align: center;
-
-    
+    text-align: center;   
 }
 
 #spin-button:hover {
@@ -99,24 +76,19 @@ ul {
     animation-name: firstSpin;
     animation-duration: 3s;
     animation-fill-mode: forwards;
-
-
 }
 
 .imgli {
     animation-name: newSpin;
     animation-duration: 3s;
     animation-fill-mode: forwards;
-    /* top: -700px; */
 }
-
 
 .slotimg {
     width: 49px;
     height: 49px;
     border-radius: 50%;
 }
-
 
 @keyframes firstSpin {
     from{
@@ -136,12 +108,13 @@ ul {
     }
 }
 
-
 #result-description {
+    width: 150px;
+    height: 5px;
     position: relative;
     z-index: 4;
-    top: 170px;
-    left: 6px;
+    top: 141px;
+    left: 533px;
     font-size: 22px;
 }
 
@@ -204,14 +177,12 @@ ul {
 }
 
 .hidden {
-    /* transition-delay: 3s; */
     visibility: hidden;
-    /* display: none; */
 }
 
 #block-array-section {
     height: 500px;
-    width: 1700px;
+    width: 800px;
     background: white;
     text-align: center;
     position: relative;
