@@ -169,6 +169,8 @@ spinButton.addEventListener('click', () => {
     // on click generate new superArray
     // one function that takes in array and changes images
     // another function that takes in three arrays and places them into superarray
+    
+   
     resultDescription.classList.add('hidden');
     resultDescription.textContent = '';
 
@@ -224,6 +226,10 @@ spinButton.addEventListener('click', () => {
     
     // play spin start
     playSound(spinningSound);
+
+    user.wallet = user.wallet - 5;
+    walletSpan.textContent = user.wallet;
+
     const resultValue = checkResult(newSuperArray);
 
     if (resultValue === 0) {
@@ -236,22 +242,22 @@ spinButton.addEventListener('click', () => {
         resultDescription.classList.remove('hidden');
         resultDescription.style.color = 'lime';
         setTimeout(function() {resultDescription.textContent = `You win $${resultValue}`; }, 3300);
-
-        
+    
         user.wallet += resultValue;
+        
         setTimeout(function() {playSound(winSound); }, 2900);
 
         
     }
 
-    user.wallet = user.wallet - 5;
-
+    
     //decrease spin counter
     spinCounter--;
     //decrease spin and update view
     spinSpan.textContent = spinCounter;
 
     //update userprofile view
+
     loadUserProfile(user);
 
     if (spinCounter === 0 || user.wallet < 5) {
@@ -295,8 +301,8 @@ export function generateRandom(array) {
 
 // load user profile function
 function loadUserProfile(user){
+    setTimeout(function() {walletSpan.textContent = user.wallet; }, 2900);
     userNameSpan.textContent = user.name;
-    walletSpan.textContent = user.wallet;  
 }
 
 // playSound function plays sound
