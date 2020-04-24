@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Pacifico&display=swap');
 
+
 body {
     background: white;
     font-family: 'Noto Sans JP', sans-serif;
@@ -7,6 +8,8 @@ body {
     width: 1200px;
     min-width: 800px;
     text-align: center;
+    position: relative;
+    left: -150px;
 }
 
 #slot-machine-div {
