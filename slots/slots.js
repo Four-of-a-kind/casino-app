@@ -1,5 +1,4 @@
 import { slotsData1 } from '../data/slots-data.js';
-// import { checkResult } from '../common/utils.js';
 import { generateSuperArray } from './generateSuperArray.js';
 
 // bring elements from DOM
@@ -7,7 +6,6 @@ const userNameSpan = document.getElementById('user-name-span');
 const walletSpan = document.getElementById('wallet-span');
 const spinSpan = document.getElementById('spin-span');
 const spinButton = document.getElementById('spin-button');
-// const resultsButtonDiv = document.getElementById('results-button-div');
 const resultDescription = document.getElementById('result-description');
 const reelZone = document.getElementById('reel-zone');
 const spinMessage = document.getElementById('spin-message');
@@ -280,31 +278,12 @@ spinButton.addEventListener('click', () => {
 
         spinButton.disabled = true;
         resultsButton.classList.toggle('hidden');
-
-        // makeResultsButton();
-        // window.location = '../results/';
     }   
 });
 
 resultsButton.addEventListener('click', () => {
     location.href = '../results/';
 });
-
-// results button
-// function makeResultsButton(){
-//     // const resultsButton = document.createElement('button');
-//     resultsButton.textContent = 'Results';
-
-//     resultsButton.classList.toggle('hidden');
-
-//     resultsButton.addEventListener('click', () => {
-//         window.location = '../results/';
-
-//     });
-//     resultsButtonDiv.appendChild(resultsButton);
-// }
-
-
 
 // generates a random object from the slots data
 export function generateRandom(array) {
