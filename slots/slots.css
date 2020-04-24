@@ -10,6 +10,7 @@ body {
     text-align: center;
     position: relative;
     left: -150px;
+    transform: scale(1.2) translateX(-50px);
 }
 
 #slot-machine-div {
@@ -152,7 +153,7 @@ ul {
 #user-name-box {
     position: relative;
     z-index: 5;
-    bottom: 928px;
+    bottom: 924px;
     left: 10px;
     color: yellow;
     font-size: 10px;
