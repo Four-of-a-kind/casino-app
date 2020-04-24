@@ -10,6 +10,7 @@ body {
     text-align: center;
     position: relative;
     left: -150px;
+    transform: scale(1.2) translateX(-50px);
 }
 
 #slot-machine-div {
@@ -121,7 +122,7 @@ ul {
 #spin-message {
     position: relative;
     z-index: 4;
-    bottom: 1566px;
+    bottom: 1563px;
     left: 8px;
     color: red;
     font-size: 15px;
@@ -135,7 +136,7 @@ ul {
     height: 30px;
     position: relative;
     border: 1px solid black;
-    bottom: 1108.5px;
+    bottom: 1105px;
     left: 99px;
     z-index: 4;
     border-radius: 50%;
@@ -152,7 +153,7 @@ ul {
 #user-name-box {
     position: relative;
     z-index: 5;
-    bottom: 928px;
+    bottom: 924px;
     left: 10px;
     color: yellow;
     font-size: 10px;
