@@ -1,5 +1,6 @@
 import { generateRandom } from './slots.js';
 
+// very cool function! I would have liked to see a test for this, since so much of the app hinges on this piece working as expected 
 // this function creates an array that contains three individual arrays taken randomly from slots data
 export function generateSuperArray(array) {
     // initialize empty arrays

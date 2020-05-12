@@ -31,6 +31,7 @@ sortedAllTimeArray.forEach((userScore) => {
 const stringyAllTimeArray = JSON.stringify(allTimeArray);
 localStorage.setItem('LEADERBOARD', stringyAllTimeArray);
 
+// I would have liked to see this refactored into a function
 if (user.wallet < 25){
     resultSpan.textContent = 'You won some soap!';
     resultImage.src = '../assets/soap.png';

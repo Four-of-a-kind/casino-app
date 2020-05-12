@@ -20,13 +20,9 @@ submitButton.addEventListener('click', () => {
 
 
 // create user object with new name from username input and default wallet
-function makeUser(usernameInput) {
-    const username = usernameInput.value;
-    const UserObject = {
-        name: username,
+function makeUser({ value }) { // we can "desctructure" this property from the object in the parameter
+    return {
+        name: value,
         wallet: 75,
     };
-
-    return UserObject;
-
 }
