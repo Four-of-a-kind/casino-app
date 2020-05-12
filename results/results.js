@@ -6,15 +6,13 @@ const resultImage = document.getElementById('result-image');
 const resetButton = document.getElementById('reset-button');
 const leaderboardList = document.getElementById('leaderboard-ul');
 
-let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD'));
+let allTimeArray = JSON.parse(localStorage.getItem('LEADERBOARD')) || [];
 const user = JSON.parse(localStorage.getItem('USER'));
 
 
 loadUserProfile(user);
 
-const sortedAllTimeArray = allTimeArray.sort(function(a, b) {
-    return b.wallet - a.wallet;
-});
+const sortedAllTimeArray = allTimeArray.sort((a, b) => b.wallet - a.wallet);
 
 
 sortedAllTimeArray.forEach((userScore) => {
@@ -22,7 +20,7 @@ sortedAllTimeArray.forEach((userScore) => {
     const name = document.createElement('h1');
     const score = document.createElement('h1');
 
-    name.textContent = `${userScore.name}`;
+    name.textContent = userScore.name;
     score.textContent = `score: ${userScore.wallet}`;
 
     list.append(name, score);
@@ -49,11 +47,6 @@ if (user.wallet > 49){
 resetButton.addEventListener('click', () => {
     window.location = '../';
 });
-
-
-
-
-
 
 function loadUserProfile(user){
     userNameSpan.textContent = user.name;

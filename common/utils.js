@@ -15,6 +15,13 @@ export function findById(idtoFind, arrayToSearch) {
 export function checkResult(superArray) {
     let totalWinValue = 0;
 
+    // here's a way to get all the values out and name them (called array destructuring)
+    const [
+        [topLeft, topMiddle, topRight],
+        [middleLeft, middle, middleRight],
+        [bottomLeft, bottomMiddle, bottomRight]
+    ] = superArray;
+
     // horizontal rows
     if (superArray[0][0].id === superArray[1][0].id && superArray[0][0].id === superArray[2][0].id){
         totalWinValue += superArray[0][0].value;
